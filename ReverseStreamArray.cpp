@@ -14,6 +14,8 @@ void FillArray(T arr[], int size);
 template <typename T>
 void PrintArray(T arr[], int size);
 
+template <typename T>
+void ReverseArray(T arr[], int size);
 
 int main()
 {
@@ -24,8 +26,12 @@ int main()
 	int Array[sizze];
 
 	FillArray(Array, sizze);
+	cout << "Массив до предобразования :" << endl;
 	PrintArray(Array, sizze);
 	
+	ReverseArray(Array, sizze);
+	cout << "Массив после предобразования :" << endl;
+	PrintArray(Array, sizze);
 }
 
 
@@ -47,4 +53,14 @@ void PrintArray(T arr[], int size) {
 	}
 
 	cout << endl;
+}
+
+
+template <typename T>
+void ReverseArray(T arr[], int size) {
+	for (int i = 0; i < size / 2; ++i) {
+		T temp = arr[i];
+		arr[i] = arr[size - 1 - i];
+		arr[size - 1 - i] = temp;
+	}	
 }
